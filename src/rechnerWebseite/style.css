@@ -126,6 +126,9 @@ margin-top: 20%
     position: absolute;
     top: 40px;
     left: 40px;
+}
 
-
+.rechner-text{
+    position: absolute;
+    color: white
 }
