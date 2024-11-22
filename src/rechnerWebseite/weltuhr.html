@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Weltuhr</title>
+    <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<button class="menu" onclick="document.location='home.html'"><img src="haus.svg"></button>
+<h1>Genaue Uhrzeit</h1>
+<div id="london" style="text-align:center;padding:1em 0;" hidden="true"> <h3><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/de/city/2643743"><span style="color:gray;">Aktuelle Uhrzeit / Ortszeit</span><br />London, Großbritannien</a></h3> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=medium&timezone=Europe%2FLondon" width="100%" height="115" frameborder="0" seamless></iframe> </div>
+<div id="japan" style="text-align:center;padding:1em 0;"hidden="true"> <h3><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/de/country/jp"><span style="color:gray;">Aktuelle Uhrzeit / Ortszeit</span><br />Japan</a></h3> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=medium&timezone=Asia%2FTokyo" width="100%" height="115" frameborder="0" seamless></iframe> </div>
+<div id="deutschland"  style="text-align:center;padding:1em 0;"hidden="true"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/de/country/de"><span style="color:gray;">Aktuelle Uhrzeit / Ortszeit</span><br />Deutschland</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=large&timezone=Europe%2FBerlin" width="100%" height="140" frameborder="0" seamless></iframe> </div>
+<div id="amerikanfork" style="text-align:center;padding:1em 0;"hidden="true"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/de/city/5844096"><span style="color:gray;">Aktuelle Uhrzeit / Ortszeit</span><br />American Fork, Vereinigte Staaten von Amerika (USA)</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=large&timezone=America%2FDenver" width="100%" height="140" frameborder="0" seamless></iframe> </div>
+<div id="moscow" style="text-align:center;padding:1em 0;" hidden="true"> <h2><a style="text-decoration:none;" href="https://www.zeitverschiebung.net/de/city/524901"><span style="color:gray;">Aktuelle Uhrzeit / Ortszeit</span><br />Moscow, Russland</a></h2> <iframe src="https://www.zeitverschiebung.net/clock-widget-iframe-v2?language=de&size=large&timezone=Europe%2FMoscow" width="100%" height="140" frameborder="0" seamless></iframe> </div>
+<select name="weltuhren" id="weltuhren">
+    <option value="london">London</option>
+    <option value="japan">Japan</option>
+    <option value="deutschland">Deutschland</option>
+</select>
+<button class="berechnen" onclick="uhrzeit()"> Ok</button>
+</body>
+
+</html>
+<script type="text/javascript">
+    function versteckelocaion(){
+ document.getElementById('london').hidden = true
+       document.getElementById('japan').hidden = true
+       document.getElementById('deutschland').hidden = true
+
+
+    }
+
+    function uhrzeit(){
+        const location = document.getElementById("weltuhren").value
+
+       versteckelocaion()
+
+        switch(location){
+            case"london":
+            document.getElementById("london").hidden = false;
+            break;
+            case"japan":
+                document.getElementById("japan").hidden = false;
+            break;
+            case"deutschland":
+                document.getElementById("deutschland").hidden = false;
+            break;
+
+            }
+    }
+</script>
+

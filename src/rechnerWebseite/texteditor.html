@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Text Editor</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+<button class="menu" onclick="document.location='home.html'"><img src="haus.svg"></button>
+<h1>Text Editor 1.0</h1>
+<button class="tooltip" onclick="vergroessern()">+A
+<span class="tooltiptext">vergrößert den ganzen Text</span>
+</button>
+<button class="tooltip" onclick="verkleinern()">-A
+  <span class="tooltiptext">verkleinert den ganzen Text</span>
+</button>
+<input class="farbpicker tooltip" type="color" id="textfarbe" placeholder="Textfarbe" onchange="aendereFarbe()">
+<button onclick="speichern()">Speichern</button>
+<textarea id="textarea" placeholder="Hier könnte dein Text stehen...">
+
+</textarea>
+<script type="text/javascript">
+  function vergroessern() {
+  const aktuellegroesse=window.getComputedStyle(document.getElementById("textarea")).fontSize;
+  const aktuelleGroesseInt = parseInt(aktuellegroesse);
+  const neueGroesse = aktuelleGroesseInt + 1;
+
+  document.getElementById("textarea").style.fontSize = neueGroesse + 'px';
+  }
+
+   function verkleinern() {
+  const aktuellegroesse=window.getComputedStyle(document.getElementById("textarea")).fontSize;
+  const aktuelleGroesseInt = parseInt(aktuellegroesse);
+  const neueGroesse = aktuelleGroesseInt - 1;
+
+  document.getElementById("textarea").style.fontSize = neueGroesse + 'px';
+  }
+function aendereFarbe() {
+  // Farbe aus ColorPicker auslesen
+  var theInput = document.getElementById("textfarbe");
+
+
+
+    // Farbvariable schreiben
+    document.getElementById("textarea").style.color =  theInput.value ;
+   }
+
+  function speichern (){
+  const text =  document.getElementById("textarea")
+    let valueinput = text.value
+
+    let blobdtMIME =  new Blob([valueinput], { type: "text/plain" })
+    let url = URL.createObjectURL(blobdtMIME)
+    let anele = document.createElement("a")
+    anele.setAttribute("download", "Downloaded Successfully");
+    anele.href = url;
+    anele.click();
+    console.log(blobdtMIME)
+  }
+</script>
+</body>
+</html>

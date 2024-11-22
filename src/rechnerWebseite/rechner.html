@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Rechner</title>
+    <link rel="stylesheet" href="style.css"/>
+    <link rel="icon" type="image/x-icon" href="favicon.ico"/>
+
+</head>
+<body>
+<button class="menu" onclick="document.location='home.html'"><img src="haus.svg"></button>
+<h1 class="center">Rechner</h1>
+<span>Wie man den Rechner benutzt: </span>
+<span>In die erste Spalte kommt die erste Ziffer für die Rechnung.</span>
+<span>Das Rechenzeichen wählt man in dem Dropdown in der Mitte.</span>
+<span>Zweite Ziffer kommt in die zweite Spalte und das Ergebnis kommt sobald man den Berechenen Button betätigt.</span>
+<span>Um eine Wurzel auszurechnen die 2. Ziffer auf 0.5 stellen und vorne die auszurechnende Zahl schreiben (Potenz).</span>
+<div class="rechner" >
+    <div id="rechnung">
+        <input id="erstezahl" type="number" placeholder="1,2,3..." pattern="\d+">
+        <select name="operatoren" id="operatoren">
+            <option value="+">addieren</option>
+            <option value="-">subtrahieren</option>
+            <option value="*">multiplizieren</option>
+            <option value="/">dividieren</option>
+            <option value="^">Potenz</option>
+        </select>
+        <input id="zweitezahl" type="number" placeholder="1,2,3..." pattern="\d+">
+    </div>
+    <input id="ergebnis" class="ergebnis center" readonly>
+</div>
+<button class="berechnen" onclick="berechne()"> berechne</button>
+<script type="text/javascript">
+    function berechne() {
+        const erstezahl = Number(document.getElementById("erstezahl").value);
+        const operator = document.getElementById("operatoren").value;
+        const zweitezahl = Number(document.getElementById("zweitezahl").value);
+        const ergebnisElement = document.getElementById("ergebnis");
+
+        var ergebnis;
+
+        switch(operator){
+            case "+":  ergebnis = erstezahl + zweitezahl;
+            break;
+            case "-": ergebnis = erstezahl - zweitezahl;
+            break;
+            case "*": ergebnis = erstezahl * zweitezahl;
+            break;
+            case "/": ergebnis = erstezahl / zweitezahl;
+            break;
+            case "^": ergebnis = Math.pow(erstezahl,zweitezahl);
+            break;
+        }
+
+        ergebnisElement.value = ergebnis;
+    }
+</script>
+</body>
+</html>
