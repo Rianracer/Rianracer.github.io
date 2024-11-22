@@ -17,6 +17,8 @@
     <option value="london">London</option>
     <option value="japan">Japan</option>
     <option value="deutschland">Deutschland</option>
+    <option value="amerikanfork">Amerikan Fork</option>
+    <option value="moscow">Moscow</option>
 </select>
 <button class="berechnen" onclick="uhrzeit()"> Ok</button>
 </body>
@@ -27,6 +29,8 @@
  document.getElementById('london').hidden = true
        document.getElementById('japan').hidden = true
        document.getElementById('deutschland').hidden = true
+       document.getElementById('amerikanfork').hidden = true
+       document.getElementById('moscow').hidden = true
 
 
     }
@@ -46,7 +50,12 @@
             case"deutschland":
                 document.getElementById("deutschland").hidden = false;
             break;
-
+            case"amerikanfork":
+                document.getElementById("amerikanfork").hidden =false;
+            break;
+            case"moscow":
+                document.getElementById("moscow").hidden =false;
+            break;
             }
     }
 </script>
