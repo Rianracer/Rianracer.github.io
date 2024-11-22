@@ -16,11 +16,18 @@
 </button>
 <input class="farbpicker tooltip" type="color" id="textfarbe" placeholder="Textfarbe" onchange="aendereFarbe()">
 <button onclick="speichern()">Speichern</button>
+<select onclick="schriftwechel()" id="Schriftart" name="Schriftart">
+    <option>system-ui</option>
+    <option>Georgia</option>
+    <option>sans-serif</option>
+    <option>cursive</option>
+</select>
 <textarea id="textarea" placeholder="Hier könnte dein Text stehen...">
-
 </textarea>
+<img src="Das_Schwarze_Quadrat.png" height="200" class="quadrat">
 <script type="text/javascript">
-  function vergroessern() {
+
+    function vergroessern() {
   const aktuellegroesse=window.getComputedStyle(document.getElementById("textarea")).fontSize;
   const aktuelleGroesseInt = parseInt(aktuellegroesse);
   const neueGroesse = aktuelleGroesseInt + 1;
@@ -57,6 +64,15 @@ function aendereFarbe() {
     anele.click();
     console.log(blobdtMIME)
   }
+function schriftwechel(){
+    console.log("Schriftart");
+    const element=document.getElementById("Schriftart");
+    console.log(element.options[element.selectedIndex].innerHTML);
+    console.log(document.getElementById("Schriftart").selectedIndex);
+    document.getElementById("textarea").style["font-family"]= element.options[element.selectedIndex].innerHTML;
+
+}
+
 </script>
 </body>
 </html>
